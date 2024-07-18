@@ -42,7 +42,7 @@ def generate_folders():
         print("Folders created successfully")
     else:
         print("Folders already exist")
-        folder_name = input('give a new name to the folder')
+        folder_name = input('give a new name to the folder: ')
         os.mkdir(folder_name)
         os.mkdir(f'{folder_name}/Web')
         os.mkdir(f'{folder_name}/Pictures')
