@@ -23,7 +23,7 @@ fileFormat = {
                               ".tar", ".gz", ".rz", ".7z",
                               ".dmg", ".rar", ".xar", ".zip"], 
 	
-               "Audio": [".aac", ".aa", ".aac", ".dvf",
+               "Audios": [".aac", ".aa", ".aac", ".dvf",
                          ".m4a", ".m4b", ".m4p", ".mp3",
                          ".msv", "ogg", "oga", ".raw", 
                          ".vox", ".wav", ".wma"], 
@@ -33,18 +33,25 @@ def generate_folders():
     
     if not os.path.exists('data'):
         os.mkdir('data')
-        if not os.path.exists('data/Web'):
-            os.mkdir('data/Web')
-        if not os.path.exists('data/Pictures'):
-            os.mkdir('data/Pictures')
-        if not os.path.exists('data/Videos'):
-            os.mkdir('data/Videos')
-        if not os.path.exists('data/Documents'):
-            os.mkdir('data/Documents')
-        if not os.path.exists('data/Compressed'):
-            os.mkdir('data/Compressed')
-        if not os.path.exists('data/Audio'):
-            os.mkdir('data/Audio')
+        os.mkdir('data/Web')
+        os.mkdir('data/Pictures')
+        os.mkdir('data/Videos')
+        os.mkdir('data/Documents')
+        os.mkdir('data/Compressed')
+        os.mkdir('data/Audios')
+        print("Folders created successfully")
+    else:
+        print("Folders already exist")
+        folder_name = input('give a new name to the folder')
+        os.mkdir(folder_name)
+        os.mkdir(f'{folder_name}/Web')
+        os.mkdir(f'{folder_name}/Pictures')
+        os.mkdir(f'{folder_name}/Videos')
+        os.mkdir(f'{folder_name}/Documents')
+        os.mkdir(f'{folder_name}/Compressed')
+        os.mkdir(f'{folder_name}/Audios')
+        print("Folders created successfully")
+        
     
  # Function to organize files into their respective folders   
 def file_organizer():
