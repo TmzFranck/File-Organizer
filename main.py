@@ -1,5 +1,6 @@
 import os
 import shutil
+import time
 
 fileFormat = {
 	           "Web": [".html5", ".html", ".htm", ".xhtml"], 
@@ -53,12 +54,16 @@ def file_organizer():
                 for format in file_format:
                     if f'.{file.split('.')[-1]}' == format:
                         shutil.move(f'{os.getcwd()}/{file}', f'data/{folder_name}/{file}')
+                        print(f"Moved {file} to {folder_name} folder")
+                        time.sleep(0.5)
                         
                         
 
 def main():
+    print("Organizing files...")
     generate_folders()
     file_organizer()
+    print("All files have been organized successfully")
     
     
     
