@@ -2,6 +2,8 @@ import os
 import shutil
 import time
 
+root = ""
+
 fileFormat = {
 	           "Web": [".html5", ".html", ".htm", ".xhtml"], 
 	
@@ -39,17 +41,18 @@ def generate_folders():
         os.mkdir('data/Documents')
         os.mkdir('data/Compressed')
         os.mkdir('data/Audios')
+	root = "data"
         print("Folders created successfully")
     else:
         print("Folders already exist")
-        folder_name = input('give a new name to the folder: ')
-        os.mkdir(folder_name)
-        os.mkdir(f'{folder_name}/Web')
-        os.mkdir(f'{folder_name}/Pictures')
-        os.mkdir(f'{folder_name}/Videos')
-        os.mkdir(f'{folder_name}/Documents')
-        os.mkdir(f'{folder_name}/Compressed')
-        os.mkdir(f'{folder_name}/Audios')
+        root = input('give a new name to the folder: ')
+        os.mkdir(root)
+        os.mkdir(f'{root}/Web')
+        os.mkdir(f'{root}/Pictures')
+        os.mkdir(f'{root}/Videos')
+        os.mkdir(f'{root}/Documents')
+        os.mkdir(f'{root}/Compressed')
+        os.mkdir(f'{root}/Audios')
         print("Folders created successfully")
         
     
@@ -60,7 +63,7 @@ def file_organizer():
             for folder_name, file_format in fileFormat.items():
                 for format in file_format:
                     if f'.{file.split('.')[-1]}' == format:
-                        shutil.move(f'{os.getcwd()}/{file}', f'data/{folder_name}/{file}')
+                        shutil.move(f'{os.getcwd()}/{file}', f'{root}/{folder_name}/{file}')
                         print(f"Moved {file} to {folder_name} folder")
                         time.sleep(0.5)
                         
